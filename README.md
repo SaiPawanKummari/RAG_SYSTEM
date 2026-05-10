@@ -155,6 +155,27 @@ python main.py
 # Future Improvements
 
 - Hybrid Retrieval (BM25 + Vector Search)
+
+# Limitations
+
+Due to hardware limitations, lightweight local LLMs were used for inference.
+
+Initially:
+- Llama3 required approximately 4.6 GB RAM
+- Phi3 Mini required approximately 3.5 GB RAM
+
+However, the available system memory was lower than the required memory for these models. Because of this, `TinyLlama` was selected as the local inference model to ensure the RAG pipeline could run successfully on limited hardware.
+
+Although TinyLlama enabled successful end-to-end RAG implementation, it has several limitations:
+
+- weaker reasoning capability
+- less accurate grounded responses
+- difficulty following strict prompt instructions
+- lower response quality compared to larger models
+
+As a result, some generated responses were not fully grounded even when relevant chunks were retrieved successfully.
+
+---
 - Re-ranking
 - Persistent Vector Database
 - Conversational Memory
