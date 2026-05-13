@@ -10,7 +10,7 @@ from generation.llm import LLM
 
 # Load documents
 loader = DocumentLoader()
-docs = loader.load_pdf("data/ThesisDocument.pdf")
+docs = loader.load_pdfs("data")
 
 # Chunk documents
 chunker = Chunker()
